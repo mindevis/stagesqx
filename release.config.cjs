@@ -24,7 +24,7 @@ module.exports = {
       '@semantic-release/exec',
       {
         publishCmd:
-          'chmod +x gradlew && ./gradlew clean build --no-daemon && bash scripts/collect-release-jars.sh',
+          'chmod +x gradlew && rm -rf .gradle/repositories && ./gradlew clean build --no-daemon --refresh-dependencies && bash scripts/collect-release-jars.sh',
       },
     ],
     [
