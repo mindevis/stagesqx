@@ -22,6 +22,37 @@ public final class StageTomlIo {
 	private StageTomlIo() {
 	}
 
+	/**
+	 * Heuristic filter for stage files when a single directory contains both stage and trigger toml files.
+	 * <p>
+	 * We treat a toml as a stage file when it declares any stage-related keys (locks/unlocks, legacy lock keys,
+	 * dependency, minecraft flag). Trigger configs should not include those keys and will be ignored by the stage loader.
+	 */
+	public static boolean looksLikeStageFile(Path path) {
+		if (path == null) {
+			return false;
+		}
+		CommentedFileConfig config = CommentedFileConfig.builder(path)
+			.writingMode(WritingMode.REPLACE)
+			.build();
+		try {
+			config.load();
+			return config.contains("locks")
+				|| config.contains("unlocks")
+				|| config.contains("items")
+				|| config.contains("mods")
+				|| config.contains("fluids")
+				|| config.contains("dimensions")
+				|| config.contains("entities")
+				|| config.contains("minecraft")
+				|| config.contains("dependency");
+		} catch (Exception e) {
+			return false;
+		} finally {
+			config.close();
+		}
+	}
+
 	public static StageDefinition loadStageFile(String fileId, Path path) {
 		CommentedFileConfig config = CommentedFileConfig.builder(path)
 			.writingMode(WritingMode.REPLACE)

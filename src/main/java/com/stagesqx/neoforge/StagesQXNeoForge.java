@@ -69,13 +69,10 @@ public final class StagesQXNeoForge {
 
 		static void init() {
 			var root = FMLPaths.CONFIGDIR.get().resolve("stagesqx");
-			var stages = root.resolve("stages");
-			var triggers = root.resolve("triggers");
-			StageRegistry.setStagesDirectory(stages);
-			StageRegistry.setTriggersDirectory(triggers);
+			StageRegistry.setStagesDirectory(root);
+			StageRegistry.setTriggersDirectory(root);
 			try {
-				java.nio.file.Files.createDirectories(stages);
-				java.nio.file.Files.createDirectories(triggers);
+				java.nio.file.Files.createDirectories(root);
 			} catch (java.io.IOException ignored) {
 			}
 		}

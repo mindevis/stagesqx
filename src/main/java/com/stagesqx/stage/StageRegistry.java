@@ -62,7 +62,10 @@ public final class StageRegistry {
 		try (Stream<Path> stream = Files.list(stagesDir)) {
 			stream.filter(p -> {
 				String n = p.getFileName().toString();
-				return Files.isRegularFile(p) && n.endsWith(".toml") && !n.equalsIgnoreCase("stagesqx.toml");
+				if (!Files.isRegularFile(p) || !n.endsWith(".toml") || n.equalsIgnoreCase("stagesqx.toml")) {
+					return false;
+				}
+				return StageTomlIo.looksLikeStageFile(p);
 			}).sorted().forEach(p -> {
 				String name = p.getFileName().toString();
 				String id = name.substring(0, name.length() - ".toml".length());
