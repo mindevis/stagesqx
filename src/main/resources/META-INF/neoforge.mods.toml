@@ -14,7 +14,7 @@ Progressive stage gating: items, fluids, dimensions, entities. Optional Curios, 
 [[dependencies.stagesqx]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.1.0,)"
+versionRange = "[21.1.226,)"
 ordering = "NONE"
 side = "BOTH"
 
