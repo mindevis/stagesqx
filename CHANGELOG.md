@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/mindevis/stagesqx/compare/v1.2.1...v1.2.2) (2026-04-25)
+
+
+### Bug Fixes
+
+* **ci:** refresh gradle deps for release build ([beb829d](https://github.com/mindevis/stagesqx/commit/beb829d10a8317979a9b989a247ceafeb364748f))
+
 ## [1.2.1](https://github.com/mindevis/stagesqx/compare/v1.2.0...v1.2.1) (2026-04-25)
 
 
