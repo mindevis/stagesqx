@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/mindevis/stagesqx/compare/v1.0.2...v1.1.0) (2026-04-25)
+
+
+### Features
+
+* **config:** load stages from config/stagesqx/stages ([7deb117](https://github.com/mindevis/stagesqx/commit/7deb1174332030d7c7c0d4c19f07e74d9d7a361c))
+
 ## [1.0.1](https://github.com/mindevis/StagesQX/compare/v1.0.0...v1.0.1) (2026-04-25)
 
 
