@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/mindevis/stagesqx/compare/v1.1.0...v1.2.0) (2026-04-25)
+
+
+### Features
+
+* **config:** keep stages and triggers in config/stagesqx ([c30e309](https://github.com/mindevis/stagesqx/commit/c30e30979c1169356b2d980e90e0be0200797ffd))
+
 # [1.1.0](https://github.com/mindevis/stagesqx/compare/v1.0.2...v1.1.0) (2026-04-25)
 
 
