@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/mindevis/stagesqx/compare/v1.2.0...v1.2.1) (2026-04-25)
+
+
+### Bug Fixes
+
+* **neoforge:** require 21.1.226+ ([d083b77](https://github.com/mindevis/stagesqx/commit/d083b77df154542e4d3fa2181ba76295cb15c92c))
+
 # [1.2.0](https://github.com/mindevis/stagesqx/compare/v1.1.0...v1.2.0) (2026-04-25)
 
 
