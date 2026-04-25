@@ -1,3 +1,21 @@
+# 1.0.0 (2026-04-25)
+
+
+### Bug Fixes
+
+* EMI not syncing after stage grant/revoke until /reload ([c3aebf6](https://github.com/mindevis/StagesQX/commit/c3aebf6195915869da7aa6d2636342fcd6e71277))
+* FTB Quests stage rewards not granting stages at all ([fbbdebc](https://github.com/mindevis/StagesQX/commit/fbbdebc594c8969b71807b1a35410a6aa7add21a))
+* FTB Quests team rewards not syncing stages to EMI ([b6fc804](https://github.com/mindevis/StagesQX/commit/b6fc804f419d784f2b8c3c69bc7445a3388746cf))
+
+
+### Features
+
+* fix hotbar enforcement, add recipe-only locks, add per-stage enforcement exceptions ([4301597](https://github.com/mindevis/StagesQX/commit/43015978d6997de4c5d4930cb4e6cbf976a49ab3))
+* initialize StagesQX fork ([247e636](https://github.com/mindevis/StagesQX/commit/247e636500a60f6bc89c6de2ad04d694e0b65eed))
+* make all player-facing text configurable via progressivestages.toml ([1a2a46b](https://github.com/mindevis/StagesQX/commit/1a2a46b7394478de7ef7363304e63b816befd62d))
+* rename config to progressivestages.toml, add soft item enforcement options, fix left-click gap ([29506da](https://github.com/mindevis/StagesQX/commit/29506da1b4e23de56ed5db0883a46d8e2ba47825))
+* **v1.4:** make EVERY text message configurable with & color code support ([904d64b](https://github.com/mindevis/StagesQX/commit/904d64bd321bc16834f1f6ad00586a4387686c2f))
+
 # [2.1.0](https://github.com/mindevis/stagesqx/compare/v2.0.1...v2.1.0) (2026-04-25)
 
 
