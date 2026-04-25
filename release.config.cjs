@@ -24,7 +24,7 @@ module.exports = {
       '@semantic-release/exec',
       {
         publishCmd:
-          'chmod +x gradlew && rm -rf .gradle && ./gradlew clean build --no-daemon --refresh-dependencies --no-build-cache --rerun-tasks && bash scripts/collect-release-jars.sh',
+          'chmod +x gradlew && WORKROOT="$(dirname "$(dirname "$(pwd)")")" && mkdir -p "$WORKROOT/StagesQX" && (test -e "$WORKROOT/StagesQX/StagesQX" || ln -s "$(pwd)" "$WORKROOT/StagesQX/StagesQX") && rm -rf .gradle && ./gradlew clean build --no-daemon --refresh-dependencies --no-build-cache --rerun-tasks && bash scripts/collect-release-jars.sh',
       },
     ],
     [
