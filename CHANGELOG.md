@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/mindevis/stagesqx/compare/v1.2.3...v1.2.4) (2026-04-25)
+
+
+### Bug Fixes
+
+* **ci:** rerun gradle tasks for release build ([56a0aea](https://github.com/mindevis/stagesqx/commit/56a0aeafc2acd566704a7e3d0a8c91d46e9699dc))
+
 ## [1.2.3](https://github.com/mindevis/stagesqx/compare/v1.2.2...v1.2.3) (2026-04-25)
 
 
