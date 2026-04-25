@@ -21,6 +21,7 @@ public final class StageRegistry {
 	private static final Object LOCK = new Object();
 	private static volatile StageCatalog catalog = StageCatalog.empty();
 	private static Path stagesDirectory;
+	private static Path triggersDirectory;
 
 	private StageRegistry() {
 	}
@@ -37,6 +38,18 @@ public final class StageRegistry {
 		}
 	}
 
+	public static void setTriggersDirectory(Path dir) {
+		synchronized (LOCK) {
+			triggersDirectory = dir;
+		}
+	}
+
+	public static Path getTriggersDirectory() {
+		synchronized (LOCK) {
+			return triggersDirectory;
+		}
+	}
+
 	public static StageCatalog getCatalog() {
 		return catalog;
 	}
@@ -49,7 +62,7 @@ public final class StageRegistry {
 		try (Stream<Path> stream = Files.list(stagesDir)) {
 			stream.filter(p -> {
 				String n = p.getFileName().toString();
-				return n.endsWith(".toml") && !n.equalsIgnoreCase("stagesqx.toml");
+				return Files.isRegularFile(p) && n.endsWith(".toml") && !n.equalsIgnoreCase("stagesqx.toml");
 			}).sorted().forEach(p -> {
 				String name = p.getFileName().toString();
 				String id = name.substring(0, name.length() - ".toml".length());
