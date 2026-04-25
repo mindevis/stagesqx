@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/mindevis/stagesqx/compare/v1.2.4...v1.2.5) (2026-04-25)
+
+
+### Bug Fixes
+
+* **ci:** add workspace symlink for neogradle caches ([f358e22](https://github.com/mindevis/stagesqx/commit/f358e22a35de8628ae8291d95425f619355e6523))
+
 ## [1.2.4](https://github.com/mindevis/stagesqx/compare/v1.2.3...v1.2.4) (2026-04-25)
 
 
