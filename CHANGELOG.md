@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/mindevis/stagesqx/compare/v1.2.2...v1.2.3) (2026-04-25)
+
+
+### Bug Fixes
+
+* **ci:** clear project gradle state for release ([354881d](https://github.com/mindevis/stagesqx/commit/354881d23d297095f48230c99c43ac292abe3409))
+
 ## [1.2.2](https://github.com/mindevis/stagesqx/compare/v1.2.1...v1.2.2) (2026-04-25)
 
 
