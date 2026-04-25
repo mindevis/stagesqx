@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/mindevis/StagesQX/compare/v1.0.0...v1.0.1) (2026-04-25)
+
+
+### Bug Fixes
+
+* **ci:** support master branch in release push script ([1598b9f](https://github.com/mindevis/StagesQX/commit/1598b9fa2a5e96e0f485b90453d8858d05f1a4f0))
+
 # 1.0.0 (2026-04-25)
 
 
