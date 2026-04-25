@@ -1,0 +1,79 @@
+name: Semantic release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Sync main with origin
+        run: |
+          set -euo pipefail
+          git fetch origin +refs/heads/master:refs/remotes/origin/master
+          git checkout master
+          git reset --hard origin/master
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Add swap (Loom / Gradle memory)
+        run: |
+          sudo swapoff -a || true
+          sudo rm -f /swapfile
+          sudo fallocate -l 8G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          free -h
+
+      - name: Tune Gradle for CI
+        run: |
+          if grep -q "^org.gradle.jvmargs=" gradle.properties; then
+            sed -i "s/^org.gradle.jvmargs=.*/org.gradle.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=384m -Dfile.encoding=UTF-8/" gradle.properties
+          fi
+          if grep -q "^org.gradle.parallel=" gradle.properties; then
+            sed -i "s/^org.gradle.parallel=.*/org.gradle.parallel=false/" gradle.properties
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync main with origin again
+        run: |
+          set -euo pipefail
+          git fetch origin +refs/heads/master:refs/remotes/origin/master
+          git checkout master
+          git reset --hard origin/master
+
+      - name: Semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
